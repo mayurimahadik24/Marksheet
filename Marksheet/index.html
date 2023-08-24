@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Marksheet</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="back">
+        <div class="header">
+            <img src="logo.png" alt="Bharati logo" width="250px"><br>
+            <a href="https://bvcoenm.edu.in/"><h1>Bharati Vidyapeeth College of Engineering</h1></a>
+            <h5>Address: Sector 7, CBD Belapur, Navi Mumbai, Maharashtra 400614</h5>
+            <h5>Contact no.:022 2757 2140 </h5>
+            <div class="hr1"></div>
+        </div>
+        <div class="btnDes">
+            <h2 class="header">Menu List:</h2>
+            <button class="btn" onclick="createProfile()">Create Profile</button>
+            <button class="btn" onclick="createMarkForm()">Enter Marks</button>
+        </div>
+    <div id="createP">
+        <div class="create">
+            <div class="close">
+                <button onclick="closeCreateProfile()" style="background-color:rgb(42, 42, 42);border:none;">
+                    <img src="close.png" alt="close" width="50x">
+                </button>
+            </div>            
+            <form >
+                <div class="mb-3 row">
+                    <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
+                    <div class="col-sm-10">
+                      <input type="email" autocomplete="off" value=""  class="form-control" id="inEmail" >
+                    </div>
+                  </div>
+                  <div class="mb-3 row">
+                    <label for="inputPassword" class="col-sm-2 col-form-label">Seat No.</label>
+                    <div class="col-sm-10">
+                      <input type="text"  value="" class="form-control" id="inSeat">
+                    </div>
+                  </div>
+                  <div class="mb-3 row">
+                    <label for="inputPassword" class="col-sm-2 col-form-label">Name</label>
+                    <div class="col-sm-10">
+                      <input type="text" value="" class="form-control" id="inName">
+                    </div>
+                  </div>
+                  <div class="mb-3 row">
+                    <label for="inputPassword" class="col-sm-2 col-form-label">Branch</label>
+                    <div class="col-sm-10">
+                      <input type="text" value="" class="form-control" id="inBranch">
+                    </div>
+                  </div>
+                  <div class="mb-3 row">
+                    <label for="inputPassword" class="col-sm-2 col-form-label">Year</label>
+                    <div class="col-sm-10">
+                      <input type="text" value="" class="form-control" id="inYear">
+                    </div>
+                  </div>
+                  <button class="btn" onclick="return handleSubmit()">Submit</button>
+            </form>
+        </div>
+    </div>
+    <div id="entrMarks">
+         
+        <div class="mark"  style="background-color:rgb(42, 42, 42);border:none;" align="center" >          
+           <form action="">
+            <table cellspacin="1">
+                <div class="close">
+                    <button onclick="closeMarkForm()" style="background-color:rgb(42, 42, 42);border:none;">
+                        <img src="close.png" alt="close" width="50x">
+                    </button>
+                </div> 
+                <tr style="text-align: center;">
+                 <td>COURSE CODE</td>
+                 <td>COURSE TITLE</td>
+                 <td>UT1</td>
+                 <td>UT2</td>
+                 <td>SEM</td>
+                </tr>
+     
+                <tr>
+                 <td>ITC401</td>
+                 <td>ENGINEERING MATHEMATICS-IV</td>
+                 <td><input id="emu1" type="number" name="ut1" onchange="handleChange(this)" > </td>
+                 <td><input id="emu2" type="number" name="ut1"> </td>
+                 <td><input id="emsem" type="number" name="sem"></td>
+                </tr>
+     
+                <tr>
+                 <td>ITC402</td>
+                 <td>COMPUTER NETWORK & NETWORK DESIGN</td>
+                 <td><input id="cnu1" type="number" name="ut1"> </td>
+                 <td><input id="cnu2" type="number" name="ut1"> </td>
+                 <td><input id="cnsem" type="number" name="sem"></td>
+                </tr>
+                <tr>
+                 <td>ITC403</td>
+                 <td>OPERATING SYSTEM</td>
+                 <td><input id="osu1" type="number" name="ut1"> </td>
+                 <td><input id="osu2" type="number" name="ut1"> </td>
+                 <td><input id="ossem" type="number" name="sem"></td>
+                </tr>
+                <tr>
+                 <td>ITC404</td>
+                 <td>AUTOMATA THEORY</td>
+                 <td><input id="atu1" type="number" name="ut1"> </td>
+                 <td><input id="atu2" type="number" name="ut1"> </td>
+                 <td><input id="atsem" type="number" name="sem"></td>
+                </tr>
+                <tr>
+                 <td>ITC405</td>
+                 <td>COMPUTER ORGANIZATION & ARCHITECTURE</td>
+                 <td><input id="coau1" type="number" name="ut1"> </td>
+                 <td><input id="coau2" type="number" name="ut1"> </td>
+                 <td><input id="coasem" type="number" name="sem"></td>
+                </tr>
+     
+                
+             </table>
+             <button class="btn" onclick="return calculate()">Submit</button>
+           </form>
+        </div>
+    </div>
+    <div id="generate">
+        <div class="info">
+            <h3 class="alignI">Personal Information</h3><br>
+            <div class="alignI"><h5 class="alignL">Name </h5><h5 id="name">: </h5></div>
+            <div class="alignI"><h5 class="alignL">Seat Number </h5><h5 id="seat">: </h5></div>
+            <div class="alignI"><h5 class="alignL">Branch </h5><h5 id="branch">: </h5></div>
+            <div class="alignI"><h5 class="alignL">Email </h5><h5 id="email">:</h5></div>
+            <div class="alignI"><h5 class="alignL">Year </h5><h5 id="year">: </h5></div>
+        </div><br>
+        <h3 class="alignI">Marksheet</h3><br>
+        <div class="marksheet">
+            <table cellspacin="1">
+                <tr style="text-align: center;">
+                 <td>COURSE CODE</td>
+                 <td>COURSE TITLE</td>
+                 <td>UT1</td>
+                 <td>UT2</td>
+                 <td>&nbsp; AVG &nbsp; </td>
+                 <td>SEM</td>
+                 <td>TOTAL  </td>
+                </tr>
+     
+                <tr>
+                 <td>ITC401</td>
+                 <td>ENGINEERING MATHEMATICS-IV</td>
+                 <td id="ut1em"></td>
+                 <td id="ut2em"></td>
+                 <td id="emavg"></td>
+                 <td id="semem"></td>
+                 <td id="emtotal"></td>
+                </tr>
+     
+                <tr>
+                 <td>ITC402</td>
+                 <td>COMPUTER NETWORK & NETWORK DESIGN</td>
+                 <td id="ut1cn"></td>
+                 <td id="ut2cn"></td>
+                 <td id="cnavg"></td>
+                 <td id="semcn"></td>
+                 <td id="cntotal"></td>
+                </tr>
+                <tr>
+                 <td>ITC403</td>
+                 <td>OPERATING SYSTEM</td>
+                 <td id="ut1os"></td>
+                 <td id="ut2os"></td>
+                 <td id="osavg"></td>
+                 <td id="semos"></td>
+                 <td id="ostotal"></td>
+                </tr>
+                <tr>
+                 <td>ITC404</td>
+                 <td>AUTOMATA THEORY</td>
+                 <td id="ut1at"></td>
+                 <td id="ut2at"></td>
+                 <td id="atavg"></td>
+                 <td id="semat"></td>
+                 <td id="attotal"></td>
+                </tr>
+                <tr>
+                 <td>ITC405</td>
+                 <td>COMPUTER ORGANIZATION & ARCHITECTURE</td>
+                 <td id="ut1coa"></td>
+                 <td id="ut2coa"></td>
+                 <td id="coaavg"></td>
+                 <td id="semcoa"></td>
+                 <td id="coatotal"></td>
+                </tr>
+                </tr>
+     
+                <tr>
+                 <td></td>
+                 <td></td>
+                 <td></td>
+                 <td></td>
+                 <td></td>
+                 <td >TOTAL</td>
+                 <td id="total"></td>
+                </tr>
+                
+             </table>
+        </div>
+    </div>
+</div>
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+  </body>
+</html>
